@@ -21,7 +21,8 @@ function readNumber() {
   return value;
 }
 
-alert(readNumber());
+let result = readNumber();
+alert(result);
 
 // 4
 let i = 0;
