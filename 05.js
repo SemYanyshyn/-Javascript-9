@@ -22,31 +22,21 @@ function reverse(str) {
 }
 
 alert(reverse("abc"));
-*/
+
 
 // 3
-/*
 function printStairs(n) {
-  let char = "";
-  for (let i = 1; i <= n; i++) {
-    char += "#".repeat(i) + "\n";
+  let line = "";
+  for (i = 1; i <= n; i++) {
+    let char = "";
+    for (j = 0; j < i; j++) {
+      char += "#";
+    }
+    line += char + "\n";
   }
-  return char;
+  return line;
 }
 
 alert(printStairs(3));
 */
 
-function printStairs(n) {
-  let char = "";
-  for (let i = 1; i <= n; i++) {
-    let line = "#";
-    for (let j = 1; j < i; j++) {
-      line += "#";
-    }
-    char += line + "\n";
-  }
-  return char;
-}
-
-alert(printStairs(3));
