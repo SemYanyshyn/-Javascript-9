@@ -10,7 +10,6 @@ let num = 6.35;
 alert(Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(округлене) -> 6.4
 
 // 3
-
 function readNumber() {
   let value;
 
