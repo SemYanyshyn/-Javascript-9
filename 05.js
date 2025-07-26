@@ -50,4 +50,81 @@ function sumRange(start, end) {
 }
 alert(sumRange(2, 4));
 alert(sumRange(-1, 3));
+
+// 5
+/*
+function min(a, b, c) {
+  let sum = {
+    first: a,
+    second: b,
+    third: c,
+  };
+  const key = Object.values(sum);
+  let min = key[0];
+  for (let num of key) {
+    if (num < min) {
+      min = num;
+    }
+  }
+  return min;
+}
+alert(min(10, 5, 11));
+alert(min(3, 8, 4));
+
+// або так
+function min(a, b, c) {
+  let arr = [a, b, c];
+  let min = arr[0];
+  for (let num of arr) {
+    if (num < min) {
+      min = num;
+    }
+  }
+  return min;
+}
+alert(min(10, 5, 11));
+alert(min(3, 8, 4));
+
+// 6
+function firstAndLastToUpper(str) {
+  return (
+    str[0].toUpperCase() + str.slice(1, -1) + str[str.length - 1].toUpperCase()
+  );
+}
+alert(firstAndLastToUpper("abc"));
+
+// 7
+function dfrontendCheck(str) {
+  str = str.toLowerCase();
+  return (
+    str.includes("church") || str.includes("dfrontend") || str.includes("kek")
+  );
+}
+
+alert(`Результат перевірки: ${dfrontendCheck("Hello DFrontend")}`);
+alert(`Результат перевірки: ${dfrontendCheck("lolkek")}`);
+alert(`Результат перевірки: ${dfrontendCheck("Hello")}`);
 */
+
+// 8
+// (не сам зробив)
+function removeDuplicationLetters(str) {
+  let newStr = [];
+  let seen = [];
+  let original = str;
+  original = original.split("");
+  str = str.toLowerCase();
+  str = str.split("");
+  for (let i = 0; i < str.length; i++) {
+    let LowerChar = str[i];
+    let originalChar = original[i];
+    if (!seen.includes(LowerChar)) {
+      seen.push(LowerChar);
+      newStr.push(originalChar);
+    } else if (LowerChar == " ") {
+      newStr.push(originalChar);
+    }
+  }
+  return newStr.join("");
+}
+alert(removeDuplicationLetters("Hello I am Iron Man"));
