@@ -38,5 +38,16 @@ function printStairs(n) {
 }
 
 alert(printStairs(3));
-*/
 
+// 4
+function sumRange(start, end) {
+  let sum = 0;
+  while (start <= end) {
+    sum += start;
+    start += 1;
+  }
+  return sum;
+}
+alert(sumRange(2, 4));
+alert(sumRange(-1, 3));
+*/
