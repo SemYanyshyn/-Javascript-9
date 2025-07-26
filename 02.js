@@ -1,57 +1,60 @@
 // (1) Переведіть перший символ у верхній регістр
-/*
-function ucFirst(str) {
-  if (str == null || str == "") {
-    alert("Пусто");
-    return;
-  } else {
-    return str[0].toUpperCase() + str.slice(1); // str.slice(1) все після 1 символу
+(() => {
+  function ucFirst(str) {
+    if (str == null || str == "") {
+      alert("Пусто");
+      return;
+    } else {
+      return str[0].toUpperCase() + str.slice(1);
+    }
   }
-}
 
-let str = prompt("Введи імя з великої:", "");
-let result = ucFirst(str);
-alert(result);
+  let str = prompt("Введи ім’я з великої:", "");
+  let result = ucFirst(str);
+  alert(result);
+})();
 
-// 2
-
-function checkSpam(str) {
-  str = str.toLowerCase();
-  return str.includes("viagra") || str.includes("xxx");
-}
-
-let str = prompt("Введіть запит", "");
-
-if (checkSpam(str)) {
-  alert("Спам !");
-} else {
-  alert("Це не спам, Ура!");
-}
-/*
-// 3
-function truncate(str, maxlength) {
-  if (str.length > maxlength) {
-    return (str = str.slice(0, maxlength) + "...");
-  } else {
-    return str;
+// (2) Перевірка на спам
+(() => {
+  function checkSpam(str) {
+    str = str.toLowerCase();
+    return str.includes("viagra") || str.includes("xxx");
   }
-}
 
-let str = prompt("Напишіть текст:", "");
-let maxlength = 10;
+  let str = prompt("Введіть запит", "");
 
-let result = truncate(str, maxlength);
-alert(result);
+  if (checkSpam(str)) {
+    alert("Спам !");
+  } else {
+    alert("Це не спам, Ура!");
+  }
+})();
 
-// 4
+// (3) Обрізання рядка до maxlength
+(() => {
+  function truncate(str, maxlength) {
+    if (str.length > maxlength) {
+      return (str = str.slice(0, maxlength) + "...");
+    } else {
+      return str;
+    }
+  }
 
-let str = "$120";
+  let str = prompt("Напишіть текст:", "");
+  let maxlength = 10;
+  let result = truncate(str, maxlength);
+  alert(result);
+})();
 
-function extractCurrencyValue(str) {
-  return (str = Number(str.slice(1)));
-}
+// (4) Витяг значення валюти
+(() => {
+  let str = "$120";
 
-let result = extractCurrencyValue(str);
-alert(result);
-alert(extractCurrencyValue("$120") === 120);
-*/
+  function extractCurrencyValue(str) {
+    return (str = Number(str.slice(1)));
+  }
+
+  let result = extractCurrencyValue(str);
+  alert(result);
+  alert(extractCurrencyValue("$120") === 120);
+})();
