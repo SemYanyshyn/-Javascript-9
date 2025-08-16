@@ -1,13 +1,13 @@
 // 1. Конвертація валют
+
 (() => {
-  let amount;
   const grivna = 40;
 
   function convert(amount) {
     if (!isFinite(amount)) {
-      return "Хибне значення";
+      throw new Error("Invalid amount");
     }
-    return (amount *= grivna);
+    return amount * grivna;
   }
 
   alert(convert(2));
@@ -124,22 +124,33 @@
   alert(`Результат перевірки: ${dfrontendCheck("Hello")}`);
 })();
 
+//або через масив
+(() => {
+  function dfrontendCheck(str) {
+    const formattedStr = str.toLowerCase();
+    const data = ["church", "dfrontend", "kek"];
+    return data.some((word) => formattedStr.includes(word));
+  }
+  alert(`Результат перевірки: ${dfrontendCheck("Hello DFrontend")}`);
+  alert(`Результат перевірки: ${dfrontendCheck("lolkek")}`);
+  alert(`Результат перевірки: ${dfrontendCheck("Hello")}`);
+})();
 // 8. Видалення повторюваних букв, зберігаючи регістр
 (() => {
   function removeDuplicationLetters(str) {
-    let newStr = [];
-    let seen = [];
-    let original = str;
-    original = original.split("");
-    str = str.toLowerCase();
-    str = str.split("");
-    for (let i = 0; i < str.length; i++) {
-      let LowerChar = str[i];
-      let originalChar = original[i];
-      if (!seen.includes(LowerChar)) {
-        seen.push(LowerChar);
+    const newStr = [];
+    const seen = [];
+    const original = str.split(""); // одразу розбив
+    const lower = str.toLowerCase().split("");
+
+    for (let i = 0; i < lower.length; i++) {
+      const lowerChar = lower[i];
+      const originalChar = original[i];
+
+      if (!seen.includes(lowerChar)) {
+        seen.push(lowerChar);
         newStr.push(originalChar);
-      } else if (LowerChar == " ") {
+      } else if (lowerChar === " ") {
         newStr.push(originalChar);
       }
     }

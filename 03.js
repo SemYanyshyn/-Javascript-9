@@ -82,6 +82,6 @@
 
   for (let arr of testCases) {
     let result = getMaxSumArr(arr);
-    alert(`Масив: [${arr}] → max сума: ${result}`);
+    alert(`Масив: [${arr}] -> max сума: ${result}`);
   }
 })();

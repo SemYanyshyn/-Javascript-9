@@ -12,21 +12,16 @@
 
 // 2. isEmpty — варіант 1 (через Object.keys)
 (() => {
-  function isEmpty(object1) {
-    const keys1 = Object.keys(object1);
-    if (keys1.length === 0) {
-      return true;
-    } else {
-      return false;
+  function isEmpty(object) {
+    if (object === null || typeof object !== "object") {
+      throw new Error("Argument must be a non-null object");
     }
+    return Object.keys(object).length === 0;
   }
 
-  const obj1 = {
-    name: "Феодор",
-    age: 28,
-  };
-
-  alert(isEmpty(obj1));
+  console.log(isEmpty({})); // true
+  console.log(isEmpty({ age: 5 })); // false
+  // console.log(isEmpty(null));  // ❌ Викине помилку
 })();
 
 // 2. isEmpty — варіант 2 (через for...in)

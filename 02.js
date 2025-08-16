@@ -1,9 +1,10 @@
 // (1) Переведіть перший символ у верхній регістр
 (() => {
   function ucFirst(str) {
-    if (str == null || str == "") {
-      alert("Пусто");
-      return;
+    if (!str) {
+      //alert("Пусто");
+      throw new Error("Incorrect string"); // Як тільки інтерпретатор
+      //доходить до throw,виконання функції припиняється.
     } else {
       return str[0].toUpperCase() + str.slice(1);
     }
@@ -17,8 +18,8 @@
 // (2) Перевірка на спам
 (() => {
   function checkSpam(str) {
-    str = str.toLowerCase();
-    return str.includes("viagra") || str.includes("xxx");
+    const formattedStr = str.toLowerCase();
+    return formattedStr.includes("viagra") || formattedStr.includes("xxx");
   }
 
   let str = prompt("Введіть запит", "");
@@ -34,7 +35,8 @@
 (() => {
   function truncate(str, maxlength) {
     if (str.length > maxlength) {
-      return (str = str.slice(0, maxlength) + "...");
+      const truncated = str.slice(0, maxlength) + "...";
+      return truncated;
     } else {
       return str;
     }
@@ -51,7 +53,7 @@
   let str = "$120";
 
   function extractCurrencyValue(str) {
-    return (str = Number(str.slice(1)));
+    Number(str.slice(1));
   }
 
   let result = extractCurrencyValue(str);
